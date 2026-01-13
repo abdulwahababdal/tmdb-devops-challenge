@@ -1,0 +1,19 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: ["wahab"]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Basic validation
+        run: |
+          echo "CI is running on branch wahab"
+          test -f README.md
