@@ -2,8 +2,9 @@ name: CI Pipeline
 
 on:
   push:
-    branches: ["wahab"]
+    branches: ["main", "wahab"]
   pull_request:
+    branches: ["main"]
 
 jobs:
   verify:
