@@ -8,9 +8,9 @@ npm start
 
 In project folder run
 
-docker build -t {image name} . 
+docker build -t {image name} .
 
-docker run -p 3000 {image name}  
+docker run -p 3000 {image name}
 
 ## Challenge Summary
 
@@ -20,3 +20,15 @@ docker run -p 3000 {image name}
 - External uptime monitoring configured to detect downtime and recovery.
 
 > Note: Monitoring was validated using a public endpoint exposed temporarily for testing purposes.
+
+# TMDB DevOps Challenge
+
+# to run
+
+docker build -t tmdb-devops .
+docker run -d --name tmdb-app -p 3000:3000 tmdb-devops
+
+# to stop
+
+docker stop tmdb-app
+docker rm tmdb-app
