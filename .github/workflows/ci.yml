@@ -1,8 +1,8 @@
-name: CI Pipeline
+name: CI
 
 on:
   push:
-    branches: ["main", "wahab"]
+    branches: ["main", "challenge-two-attempt"]
   pull_request:
     branches: ["main"]
 
@@ -14,7 +14,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Basic validation
-        run: |
-          echo "CI is running on branch wahab"
-          test -f README.md
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Test
+        run: npm test -- --watchAll=false --passWithNoTests
