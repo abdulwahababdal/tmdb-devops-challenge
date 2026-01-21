@@ -24,11 +24,13 @@ docker run -p 3000 {image name}
 - The Docker image was pushed to Docker Hub and pulled from the virtual machine.
 - The application was deployed on the VM as a Docker container and exposed via a public port.
 - A Docker restart policy was configured to ensure the service automatically recovers after failures.
+- Application health monitoring was implemented using Docker HEALTHCHECK to detect unhealthy states and trigger recovery.
 - Service recovery was validated by manually stopping the container and confirming automatic restart.
 
 - GitLab CI pipeline execution and runtime:
   https://gitlab.com/abdulwahababdal/tmdb-devops-challenge/-/pipelines/2277241486
 
+Private SSH keys are not committed to the repository for security reasons. The private key is used locally for SSH authentication into the VM, while the public key can be safely shared if required.
 
 ## Generate an SSH key pair locally (private key remains on the local machine, only the public key is shared)
 ssh-keygen -t ed25519 -f ~/.ssh/oracle_tmdb -C "tmdb-devops"
